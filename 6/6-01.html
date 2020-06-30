@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var otxt1 = document.getElementById('txt1');
+            var otxt2 = document.getElementById('txt2');
+            var obtn1 = document.getElementById('btn1');
+
+            obtn1.onclick=function() {
+               var n1 = parseInt(otxt1.value);
+               var n2 = parseInt(otxt2.value);
+
+               if(isNaN(n1))
+                   alert("first number is wrong");
+               else if(isNaN(n2))
+                   alert("second number is wrong");
+               else
+                   alert(n1+n2); 
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="txt1" type="text"/>
+    <input id="txt2" type="text"/>
+    <input id="btn1" type="button" value="求和"/>
+</body>
+</html>
