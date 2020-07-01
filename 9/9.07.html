@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+    <script>
+        setInterval(function() {
+            var odiv1 = document.getElementById('div1');
+            odiv1.style.left = odiv1.offsetLeft + 10 + 'px';
+        }, 30);
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>
