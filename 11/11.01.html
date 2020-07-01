@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oul = document.getElementById("ul1");
+
+            alert(oul.children.length); //子节点（子辈）
+            for (var i = 0; i < oul.childNodes.length; i++) {
+                oul.childNodes[i].style.background = "red";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        777 888
+    </ul>
+</body>
+
+</html>

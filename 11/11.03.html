@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var aA = document.getElementsByTagName("a");
+            for (var i = 0; i < aA.length; i++) {
+                aA[i].onclick = function() {
+                    this.parentNode.style.display = "none";
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>7777<a href="javascript:;">隐藏</a></li>
+        <li>123<a href="javascript:;">隐藏</a></li>
+        <li>677<a href="javascript:;">隐藏</a></li>
+        <li>68<a href="javascript:;">隐藏</a></li>
+        <li>69<a href="javascript:;">隐藏</a></li>
+    </ul>
+</body>
+
+</html>
