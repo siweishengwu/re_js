@@ -6,14 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
-            var oul = document.getElementById("ul1");
-            var ali = oul.getElementsByTagName("li");
-            for (var i = 0; i < ali.length; i++) {
-                if (ali[i].className == "box") {
-                    ali[i].style.background = "red";
+        function getByClass(oParent, sClass) {
+            var aResult = [];
+            var aele = oParent.getElementsByTagName("*");
+            for (var i = 0; i < aele.length; i++) {
+                if (aele[i].className == sClass) {
+                    aResult.push(aele[i]);
                 }
             }
+            return aResult;
+        }
+
+        window.onload = function() {
+            var oul = document.getElementById("ul1");
+            var abox = getByClass(oul, "box");
+
+            for (var i = 0; i < abox.length; i++) {
+                abox[i].style.background = "blue";
+            }
+            // var ali = oul.getElementsByTagName("li");
+            // for (var i = 0; i < ali.length; i++) {
+            //     if (ali[i].className == "box") {
+            //         ali[i].style.background = "red";
+            //     }
+            // }
         }
     </script>
 </head>
