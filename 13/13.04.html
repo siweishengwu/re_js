@@ -8,18 +8,22 @@
     <script>
         window.onload = function() {
             var otab = document.getElementById("tab1");
-            // alert(otab
-            //     .getElementsByTagName("tbody")[0]
-            //     .getElementsByTagName("tr")[1]
-            //     .getElementsByTagName("td")[1]
-            //     .innerHTML);
-            alert(otab.tBodies[0].rows[1].cells[1].innerHTML);
-            //tBodies表格 tHead表头 tFoot表尾 rows cells
+
+            var obtn = document.getElementById("btn1");
+            var oname = document.getElementById("name");
+            var oage = document.getElementById("age");
+            
+            obtn.onclick=function(){
+
+            }; 
         };
     </script>
 </head>
 
 <body>
+    姓名：<input id="name" type="text" />
+    年龄：<input id="age" type="text"/>
+    <input id="btn1" type="button" value="添加" />
     <table id="tab1" border="1" width="500">
         <thead>
             <td>ID</td>
@@ -40,6 +44,16 @@
             <tr>
                 <td>3</td>
                 <td>王五</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>王五6</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>王五7</td>
                 <td>5</td>
             </tr>
         </tbody>
