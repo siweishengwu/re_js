@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var otab = document.getElementById("tab1");
+            alert(otab
+                .getElementsByTagName("tbody")[0]
+                .getElementsByTagName("tr")[1]
+                .getElementsByTagName("td")[1]
+                .innerHTML);
+        };
+    </script>
+</head>
+
+<body>
+    <table id="tab1" border="1" width="500px">
+        <thead>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>777</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>666</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>555</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
