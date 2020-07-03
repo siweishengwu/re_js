@@ -8,23 +8,23 @@
     <script>
         window.onload = function() {
             var otab = document.getElementById("tab1");
-            var oldColor ="";
+            var oldColor = "";
 
-            for(var i=0;i<otab.tBodies[0].rows.length;i++){
-                otab.tBodies[0].rows[i].onmouseover=function(){
+            for (var i = 0; i < otab.tBodies[0].rows.length; i++) {
+                otab.tBodies[0].rows[i].onmouseover = function() {
                     oldColor = this.style.background;
                     this.style.background = "green";
-                }
-                otab.tBodies[0].rows[i].onmouseout=function(){
+                };
+                otab.tBodies[0].rows[i].onmouseout = function() {
                     this.style.background = oldColor
-                }
+                };
 
 
-                if(i%2)
-                    otab.tBodies[0].rows[i].style.background="";
+                if (i % 2)
+                    otab.tBodies[0].rows[i].style.background = "";
                 else
-                    otab.tBodies[0].rows[i].style.background="#ccc";
-            }
+                    otab.tBodies[0].rows[i].style.background = "#ccc";
+            };
         };
     </script>
 </head>
