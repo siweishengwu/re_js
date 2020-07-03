@@ -8,69 +8,67 @@
     <script>
         window.onload = function() {
             var otab = document.getElementById("tab1");
-
+            var otxt = document.getElementById("name");
             var obtn = document.getElementById("btn1");
-            var oname = document.getElementById("name");
-            var oage = document.getElementById("age");
 
             obtn.onclick = function() {
-                var otr = document.createElement("tr");
-                var otd = document.createElement("td");
-                otd.innerHTML = otab.tBodies[0].rows.length + 1; //?
-                otr.appendChild(otd);
+                for (var i = 0; i < otab.tBodies[0].rows.length; i++) {
+                    var stab = otab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                    var stxt = otxt.value.toLowerCase();
+                    var arr = stxt.split(' ');
+                    otab.tBodies[0].rows[i].style.display = "none";
 
-
-                var otd = document.createElement("td");
-                otd.innerHTML = oname.value;
-                otr.appendChild(otd);
-
-
-                var otd = document.createElement("td");
-                otd.innerHTML = oage.value;
-                otr.appendChild(otd);
-
-                otab.tBodies[0].appendChild(otr);
+                    for (var j = 0; j < arr.length; j++) {
+                        if (stab.search(arr[j]) != -1) {
+                            otab.tBodies[0].rows[i].style.display = "block";
+                        }
+                    }
+                }
             };
         };
     </script>
 </head>
 
 <body>
-    姓名：<input id="name" type="text" /> 年龄：
-    <input id="age" type="text" />
-    <input id="btn1" type="button" value="添加" />
+    姓名：<input id="name" type="text" />
+    <input id="btn1" type="button" value="搜索" />
     <table id="tab1" border="1" width="500">
         <thead>
             <td>ID</td>
             <td>姓名</td>
             <td>年龄</td>
-            <td>delete</td>
+            <td>操作</td>
         </thead>
         <tbody>
             <tr>
                 <td>1</td>
                 <td>张三</td>
                 <td>7</td>
+                <td></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>李四</td>
                 <td>6</td>
+                <td></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>王五</td>
                 <td>5</td>
+                <td></td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>王五6</td>
                 <td>5</td>
+                <td></td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>王五7</td>
+                <td>Admin</td>
                 <td>5</td>
+                <td></td>
             </tr>
         </tbody>
     </table>

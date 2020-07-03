@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var oul1 = document.getElementById("ul1");
+            var oul2 = document.getElementById("ul2");
+            var obtn = document.getElementById("btn1");
+            obtn.onclick = function() {
+                var oli = oul1.children[0];
+                oul1.removeChild(oli);
+                oul2.appendChild(oli);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <input id="btn1" type="button" value="移动" />
+    <ul id="ul2">
+    </ul>
+</body>
+
+</html>
