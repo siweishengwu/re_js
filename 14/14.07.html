@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var otab = document.getElementById("tab1");
             var obtn = document.getElementById("btn1");
 
-            obtn.onclick = function() {
-                var arr=[];
+            obtn.onclick = function () {
+                var arr = [];
 
-                for(var i=0;i<otab.tBodies[0].rows.length;i++){
-                    arr[i]=otab.tBodies[0].rows[i];
+                for (var i = 0; i < otab.tBodies[0].rows.length; i++) {
+                    arr[i] = otab.tBodies[0].rows[i];
                 }
-                arr.sort(function(tr1,tr2){
+                arr.sort(function (tr1, tr2) {
                     var n1 = parseInt(tr1.cells[0].innerHTML);
                     var n2 = parseInt(tr2.cells[0].innerHTML);
                     return n1 - n2;
                 });
-                for(var i=0;i<arr.length;i++){
+                for (var i = 0; i < arr.length; i++) {
                     otab.tBodies[0].appendChild(arr[i]);
                 }
             };

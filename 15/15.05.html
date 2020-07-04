@@ -22,11 +22,11 @@
             var odiv = document.getElementById("div1");
 
             clearInterval(timer)// 确保每次只有一个定时器在工作不会产生点完加速同时存在多个计时器
-            timer=setInterval(function () {
+            timer = setInterval(function () {
                 if (odiv.offsetLeft >= 300) //7*n=301的时候用==会继续动
                     clearInterval(timer);
                 else // 停止运动和计时器分开
-                    odiv.style.left = odiv.offsetLeft + speed + 'px'; 
+                    odiv.style.left = odiv.offsetLeft + speed + 'px';
             }, 30);
         };
     </script>
@@ -38,4 +38,4 @@
     </div>
 </body>
 
-</html> 
+</html>

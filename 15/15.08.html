@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #div1{width: 150px;height: 200px; background: green;position: absolute; left: -150px;}
-        #div1 span{position: absolute;width: 20px; height: 60px; line-height: 20px; background: blue;top:70px; right: -20px;}
+        #div1 {
+            width: 150px;
+            height: 200px;
+            background: green;
+            position: absolute;
+            left: -150px;
+        }
+
+        #div1 span {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            line-height: 20px;
+            background: blue;
+            top: 70px;
+            right: -20px;
+        }
     </style>
     <script>
-        window.onload=function(){
+        window.onload = function () {
             var odiv = document.getElementById("div1");
-            
-            odiv.onmouseover = function(){
-                startMove(10,0);
+
+            odiv.onmouseover = function () {
+                startMove(10, 0);
             }
-            odiv.onmouseout =function(){
-               startMove(-10,-150);
+            odiv.onmouseout = function () {
+                startMove(-10, -150);
             }
         };
 
         var timer = null;
 
-        function startMove(speed,iTarget){
+        function startMove(speed, iTarget) {
             var odiv = document.getElementById("div1");
 
             clearInterval(timer);
-            timer=setInterval(function(){
-                if(odiv.offsetLeft==iTarget)
+            timer = setInterval(function () {
+                if (odiv.offsetLeft == iTarget)
                     clearInterval(timer);
                 else
-                    odiv.style.left=odiv.offsetLeft+speed+"px";
-            },30);
+                    odiv.style.left = odiv.offsetLeft + speed + "px";
+            }, 30);
         };
     </script>
 </head>
+
 <body>
-    <div  id="div1">
+    <div id="div1">
         <span>分享到</span>
     </div>
 </body>
+
 </html>

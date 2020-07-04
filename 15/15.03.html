@@ -21,8 +21,8 @@
             var speed = 7;
             var odiv = document.getElementById("div1");
 
-            timer=setInterval(function () {
-                if (odiv.offsetLeft >= 300) 
+            timer = setInterval(function () {
+                if (odiv.offsetLeft >= 300)
                     clearInterval(timer);
                 else
                     odiv.style.left = odiv.offsetLeft + speed + 'px';

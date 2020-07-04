@@ -1,55 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #div1{width: 150px;height: 200px; background: green;position: absolute; left: -150px;}
-        #div1 span{position: absolute;width: 20px; height: 60px; line-height: 20px; background: blue;top:70px; right: -20px;}
+        #div1 {
+            width: 150px;
+            height: 200px;
+            background: green;
+            position: absolute;
+            left: -150px;
+        }
+
+        #div1 span {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            line-height: 20px;
+            background: blue;
+            top: 70px;
+            right: -20px;
+        }
     </style>
     <script>
-        window.onload=function(){
+        window.onload = function () {
             var odiv = document.getElementById("div1");
-            
-            odiv.onmouseover = function(){
+
+            odiv.onmouseover = function () {
                 startMove();
             }
-            odiv.onmouseout =function(){
-               startMove2();
+            odiv.onmouseout = function () {
+                startMove2();
             }
         };
 
         var timer = null;
 
-        function startMove(){
+        function startMove() {
             var odiv = document.getElementById("div1");
 
             clearInterval(timer);
-            timer=setInterval(function(){
-                if(odiv.offsetLeft==0)
+            timer = setInterval(function () {
+                if (odiv.offsetLeft == 0)
                     clearInterval(timer);
                 else
-                    odiv.style.left=odiv.offsetLeft+10+"px";
-            },30);
+                    odiv.style.left = odiv.offsetLeft + 10 + "px";
+            }, 30);
         };
 
-        function startMove2(){
+        function startMove2() {
             var odiv = document.getElementById("div1");
 
             clearInterval(timer);
-            timer=setInterval(function(){
-                if(odiv.offsetLeft==-150)
+            timer = setInterval(function () {
+                if (odiv.offsetLeft == -150)
                     clearInterval(timer);
                 else
-                    odiv.style.left=odiv.offsetLeft-10+"px";
-            },30);
+                    odiv.style.left = odiv.offsetLeft - 10 + "px";
+            }, 30);
         };
     </script>
 </head>
+
 <body>
-    <div  id="div1">
+    <div id="div1">
         <span>分享到</span>
     </div>
 </body>
+
 </html>

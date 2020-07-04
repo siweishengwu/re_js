@@ -10,13 +10,13 @@
             float: left;
             margin: 10px;
         }
-        
+
         #div1 {
             width: 50px;
             height: 50px;
             background: red;
         }
-        
+
         #div2 {
             width: 250px;
             height: 180px;
@@ -25,17 +25,17 @@
         }
     </style>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var odiv1 = document.getElementById('div1');
             var odiv2 = document.getElementById('div2');
             var timer = null;
             //two functions together one function real details
-            odiv2.onmouseover = odiv1.onmouseover = function() {
+            odiv2.onmouseover = odiv1.onmouseover = function () {
                 clearInterval(timer);
                 odiv2.style.display = "block";
             };
-            odiv2.onmouseout = odiv1.onmouseout = function() {
-                timer = setTimeout(function() {
+            odiv2.onmouseout = odiv1.onmouseout = function () {
+                timer = setTimeout(function () {
                     odiv2.style.display = "none";
                 }, 500);
             };

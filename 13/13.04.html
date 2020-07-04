@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var otab = document.getElementById("tab1");
 
             var obtn = document.getElementById("btn1");
             var oname = document.getElementById("name");
             var oage = document.getElementById("age");
 
-            obtn.onclick = function() {
+            obtn.onclick = function () {
                 var otr = document.createElement("tr");
                 var otd = document.createElement("td");
                 otd.innerHTML = otab.tBodies[0].rows.length + 1; //?

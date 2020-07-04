@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #ul1{background: green;}
-        #ul2{background: yellow;}
+        #ul1 {
+            background: green;
+        }
+
+        #ul2 {
+            background: yellow;
+        }
     </style>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var oul1 = document.getElementById("ul1");
             var obtn = document.getElementById("btn1");
-            
-            obtn.onclick = function() {
+
+            obtn.onclick = function () {
                 var oli = oul1.children[0];
-                oul1.appendChild(oli); 
+                oul1.appendChild(oli);
             };
         };
     </script>

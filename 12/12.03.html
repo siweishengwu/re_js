@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var aa = document.getElementsByTagName("a");
             var oul = document.getElementById("ul1");
             for (var i = 0; aa.length; i++) {
-                aa[i].onclick = function() {
+                aa[i].onclick = function () {
                     oul.removeChild(this.parentNode);
                 }
             }

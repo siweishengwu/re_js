@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var otab = document.getElementById("tab1");
             var otxt = document.getElementById("name");
             var obtn = document.getElementById("btn1");
 
-            obtn.onclick = function() {
+            obtn.onclick = function () {
                 for (var i = 0; i < otab.tBodies[0].rows.length; i++) {
                     if (otab.tBodies[0].rows[i].cells[1].innerHTML == otxt.value)
                         otab.tBodies[0].rows[i].style.background = "yellow";

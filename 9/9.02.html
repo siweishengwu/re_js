@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var obtn1 = document.getElementById('btn1');
             var obtn2 = document.getElementById('btn2');
             var timer = null;
 
-            obtn1.onclick = function() {
-                timer = setInterval(function() {
+            obtn1.onclick = function () {
+                timer = setInterval(function () {
                     alert('a');
                 }, 2500);
             };
 
-            obtn2.onclick = function() {
+            obtn2.onclick = function () {
                 clearInterval(timer);
             };
         }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var otab = document.getElementById("tab1");
 
             var obtn = document.getElementById("btn1");
@@ -15,7 +15,7 @@
             var id = otab.tBodies[0].rows.length + 1;
 
 
-            obtn.onclick = function() {
+            obtn.onclick = function () {
                 var otr = document.createElement("tr");
                 var otd = document.createElement("td");
                 otd.innerHTML = id++;
@@ -36,7 +36,7 @@
                 otd.innerHTML = '<a href="javascript:;">delte</a>';
                 otr.appendChild(otd);
 
-                otd.getElementsByTagName("a")[0].onclick = function() {
+                otd.getElementsByTagName("a")[0].onclick = function () {
                     otab.tBodies[0].removeChild(this.parentNode.parentNode);
                 };
 

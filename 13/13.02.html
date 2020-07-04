@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var otab = document.getElementById("tab1");
 
             // alert(otab.tBodies[0].rows.length); 正常5
             // alert(otab.rows.length); 6把表头thead算进去
-            for(var i=0;i<otab.tBodies[0].rows.length;i++){
-                if(i%2)
-                    otab.tBodies[0].rows[i].style.background="";
+            for (var i = 0; i < otab.tBodies[0].rows.length; i++) {
+                if (i % 2)
+                    otab.tBodies[0].rows[i].style.background = "";
                 else
-                    otab.tBodies[0].rows[i].style.background="#ccc";
+                    otab.tBodies[0].rows[i].style.background = "#ccc";
             }
         };
     </script>
