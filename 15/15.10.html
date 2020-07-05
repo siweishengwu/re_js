@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var odiv = document.getElementById("div1");
+
+            odiv.onmouseover = function () {
+                startMove(100);
+            }
+            odiv.onmouseout = function () {
+                startMove(30);
+            }
+        };
+        var alpha = 30;//透明度 到時候會/100
+        var timer = null;
+        function startMove(iTarget) {
+            var odiv = document.getElementById("div1");
+
+            clearInterval(timer);
+            timer = setInterval(function () {
+                var speed = 0;
+
+                if (alpha < iTarget) {
+                    speed = 10;
+                }
+                else {
+                    speed = -10;
+                }
+                if (alpha == iTarget) {
+                    clearInterval(timer);
+                }
+                else {
+                    alpha += speed;
+                    odiv.style.opacity = alpha / 100;
+                }
+            }, 30);
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>

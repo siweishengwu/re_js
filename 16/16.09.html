@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 150px;
+            background: red;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        #txt1 {
+            top: 0;
+            right: 0;
+            position: fixed;
+        }
+    </style>
+    <script>
+        window.onscroll = function () {
+            var odiv = document.getElementById("div1");
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            // odiv.style.top = document.documentElement.clientHeight - odiv.offsetHeight + scrollTop + "px";
+            startMove(parseInt((document.documentElement.clientHeight - odiv.offsetHeight) / 2 + scrollTop));//取整数不然除二会抖
+        };
+
+        var timer = null;
+        function startMove(iTarget) {
+            var odiv = document.getElementById("div1");
+            clearInterval(timer);
+            timer = setInterval(function () {
+                var speed = (iTarget - odiv.offsetTop) / 2;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (odiv.offsetTop == iTarget) {
+                    clearInterval(timer);
+                } else {
+                    document.title = odiv.offsetTop;
+                    document.getElementById("txt1").value = odiv.offsetTop;
+                    odiv.style.top = odiv.offsetTop + speed + "px";
+                }
+            }, 30);
+        };
+    </script>
+</head>
+
+<body style="height: 2000px;">
+    <input type="text" id="txt1" />
+    <div id="div1"></div>
+</body>
+
+</html>
