@@ -34,7 +34,7 @@
             odiv.onmouseout = function () {
                 startMove(-150);
             }
-        }; 
+        };
 
         var timer = null;
 
@@ -43,7 +43,7 @@
 
             clearInterval(timer);
             var speed = 0;
-            if(odiv.offsetLeft>iTarget) //150>0
+            if (odiv.offsetLeft > iTarget) //150>0
                 speed = -10;
             else                        //150<0
                 speed = 10;
