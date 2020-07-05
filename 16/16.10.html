@@ -24,7 +24,14 @@
             top: 0;
         }
 
-        #div3{width: 1px; height: 300px; position: absolute; left: 100px; top: 0; background: black;}
+        #div3 {
+            width: 1px;
+            height: 300px;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            background: black;
+        }
     </style>
     <script>
         var timer = null;
@@ -34,17 +41,16 @@
             timer = setInterval(function () {
                 var speed = 0;
 
-                if(odiv.offsetLeft<iTarget)
+                if (odiv.offsetLeft < iTarget)
                     speed = 7;
                 else
                     speed = -7;
 
-                if(Math.abs(iTarget-odiv.offsetLeft)<=7)
-                {
+                if (Math.abs(iTarget - odiv.offsetLeft) <= 7) {
                     clearInterval(timer);
-                    odiv.style.Left = iTarget+"px";
+                    odiv.style.offsetLeft = iTarget + "PX";
                 }
-                odiv.style.left = odiv.offsetLeft +speed+ "px";
+                odiv.style.left = odiv.offsetLeft + speed + "px";
             }, 30);
         } 
     </script>
