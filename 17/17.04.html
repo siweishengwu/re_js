@@ -19,6 +19,7 @@
         window.onload = function(){
             var adiv = document.getElementsByTagName("div");
             for(var i = 0; i<adiv.length;i++){
+                adiv[i].alpha = 30;
                 adiv[i].onmouseover=function(){
                     startMove(this,100);
                 };
@@ -27,18 +28,18 @@
                 }
             };
         };
-        var alpha = 30;
+        // var alpha = 30;
         function startMove(obj, iTarget) {
             clearInterval(obj.timer);
             obj.timer = setInterval(function () {
-                var speed = (iTarget - alpha) / 6;
+                var speed = (iTarget - obj.alpha) / 6;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
-                if (alpha == iTarget) {
+                if (obj.alpha == iTarget) {
                     clearInterval(obj.timer);
                 } else {
-                    alpha += speed;
-                    obj.style.opacity = alpha / 100;
+                    obj.alpha += speed;
+                    obj.style.opacity = obj.alpha / 100;
                 }
             }, 30);
         };
