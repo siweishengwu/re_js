@@ -19,6 +19,7 @@
         window.onload = function(){
             var adiv = document.getElementsByTagName("div");
             for(var i = 0; i<adiv.length;i++){
+                //多物体运动 所有东西不能公用
                 adiv[i].alpha = 30;
                 adiv[i].onmouseover=function(){
                     startMove(this,100);

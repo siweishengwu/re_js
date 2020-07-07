@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{width: 200px; height: 200px; background: red;}
+    </style>
+    <script>
+        setInterval(function(){
+            var odiv = document.getElementById("div1");
+            odiv.style.width = odiv.offsetWidth-1+"px";
+        },30);
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

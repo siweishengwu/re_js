@@ -17,7 +17,7 @@
         window.onload = function () {
             var adiv = document.getElementsByTagName("div");
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].timer = null;
+                adiv[i].timer = null;// 开三个定时器 这样不冲突
                 adiv[i].onmouseover = function () {
                     startMove(this, 400);
                 };
