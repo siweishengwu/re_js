@@ -17,11 +17,12 @@
     </style>
     <script>
         var timer = null;
+
         function startMove() {
             var speed = 7;
             var odiv = document.getElementById("div1");
 
-            timer = setInterval(function () {
+            timer = setInterval(function() {
                 if (odiv.offsetLeft >= 300) {
                     clearInterval(timer);
                 }

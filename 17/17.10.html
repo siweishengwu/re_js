@@ -7,47 +7,44 @@
     <title>Document</title>
     <style>
         div {
-            width: 200px;
-            height: 200px;
-            margin: 20px;
-            float: left;
+            width: 100px;
+            height: 50px;
             background: red;
-            opacity: 0.3;
+            margin: 10px;
+            border: 10px solid black;
+            /* 加了border就bug了 */
         }
     </style>
     <script>
         window.onload = function() {
             var adiv = document.getElementsByTagName("div");
             for (var i = 0; i < adiv.length; i++) {
+                adiv[i].timer = null; // 开三个定时器 这样不冲突
                 adiv[i].onmouseover = function() {
-                    startMove(this, 100);
+                    startMove(this, 400);
                 };
                 adiv[i].onmouseout = function() {
-                    startMove(this, 30);
-                }
-            };
+                    startMove(this, 100);
+                };
+            }
         };
-        var alpha = 30;
-
+        // var timer = null;
         function startMove(obj, iTarget) {
             clearInterval(obj.timer);
             obj.timer = setInterval(function() {
-                var speed = (iTarget - alpha) / 6;
+                var speed = (iTarget - obj.offsetWidth) / 6;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
-                if (alpha == iTarget) {
+                if (obj.offsetWidth == iTarget)
                     clearInterval(obj.timer);
-                } else {
-                    alpha += speed;
-                    obj.style.opacity = alpha / 100;
-                }
+                else
+                    obj.style.width = obj.offsetWidth + speed + "px";
             }, 30);
         };
     </script>
 </head>
 
 <body>
-    <div></div>
     <div></div>
     <div></div>
     <div></div>

@@ -11,31 +11,31 @@
             height: 200px;
             margin: 20px;
             float: left;
-            background: red;
+            background: yellow;
             opacity: 0.3;
         }
     </style>
     <script>
-        window.onload = function () {
+        window.onload = function() {
             var odiv1 = document.getElementById("div1");
             var odiv2 = document.getElementById("div2");
-            odiv1.onmouseover = function () {
-                startMove(this,400);
+            odiv1.onmouseover = function() {
+                startMove(this, 400);
             };
-            odiv1.onmouseout = function () {
-                startMove(this,200);
-            }; 
-            odiv2.onmouseover = function () {
-                startMove2(this,400);
+            odiv1.onmouseout = function() {
+                startMove(this, 200);
             };
-            odiv2.onmouseout = function () {
-                startMove2(this,200);
+            odiv2.onmouseover = function() {
+                startMove2(this, 400);
+            };
+            odiv2.onmouseout = function() {
+                startMove2(this, 200);
             };
         };
 
         function startMove(obj, iTarget) {
             clearInterval(obj.timer);
-            obj.timer = setInterval(function () {
+            obj.timer = setInterval(function() {
                 var speed = (iTarget - obj.offsetHeight) / 6;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
@@ -46,9 +46,10 @@
                 }
             }, 30);
         };
+
         function startMove2(obj, iTarget) {
             clearInterval(obj.timer);
-            obj.timer = setInterval(function () {
+            obj.timer = setInterval(function() {
                 var speed = (iTarget - obj.offsetWidth) / 6;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 

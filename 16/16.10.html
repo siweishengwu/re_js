@@ -14,7 +14,7 @@
             left: 0;
             top: 50px;
         }
-
+        
         #div2 {
             width: 1px;
             height: 300px;
@@ -23,7 +23,7 @@
             left: 300px;
             top: 0;
         }
-
+        
         #div3 {
             width: 1px;
             height: 300px;
@@ -35,10 +35,11 @@
     </style>
     <script>
         var timer = null;
+
         function startMove(iTarget) {
             var odiv = document.getElementById("div1");
             clearInterval(timer);
-            timer = setInterval(function () {
+            timer = setInterval(function() {
                 var speed = 0;
 
                 if (odiv.offsetLeft < iTarget)
@@ -52,7 +53,7 @@
                 }
                 odiv.style.left = odiv.offsetLeft + speed + "px";
             }, 30);
-        } 
+        }
     </script>
 </head>
 

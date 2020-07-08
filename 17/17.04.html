@@ -16,23 +16,23 @@
         }
     </style>
     <script>
-        window.onload = function(){
+        window.onload = function() {
             var adiv = document.getElementsByTagName("div");
-            for(var i = 0; i<adiv.length;i++){
-                //多物体运动 所有东西不能公用
+            for (var i = 0; i < adiv.length; i++) {
+                //多物体运动 所有东西不能共用
                 adiv[i].alpha = 30;
-                adiv[i].onmouseover=function(){
-                    startMove(this,100);
+                adiv[i].onmouseover = function() {
+                    startMove(this, 100);
                 };
-                adiv[i].onmouseout=function(){
-                    startMove(this,30);
+                adiv[i].onmouseout = function() {
+                    startMove(this, 30);
                 }
             };
         };
         // var alpha = 30;
         function startMove(obj, iTarget) {
             clearInterval(obj.timer);
-            obj.timer = setInterval(function () {
+            obj.timer = setInterval(function() {
                 var speed = (iTarget - obj.alpha) / 6;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 

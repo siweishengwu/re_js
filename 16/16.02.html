@@ -14,7 +14,7 @@
             left: 0;
             top: 50px;
         }
-
+        
         #div2 {
             width: 1px;
             height: 300px;
@@ -28,12 +28,12 @@
         function startMove() {
             var odiv = document.getElementById("div1");
             // alert(odiv.offsetLeft);//offsetleft在哪個位置
-            setInterval(function () {
+            setInterval(function() {
                 var speed = (300 - odiv.offsetLeft) / 10;
                 odiv.style.left = odiv.offsetLeft + speed + "px";
                 document.title = odiv.offsetLeft + "," + speed;
             }, 30);
-        } 
+        }
     </script>
 </head>
 

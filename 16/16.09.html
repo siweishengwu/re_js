@@ -14,7 +14,7 @@
             right: 0;
             bottom: 0;
         }
-
+        
         #txt1 {
             top: 0;
             right: 0;
@@ -22,18 +22,19 @@
         }
     </style>
     <script>
-        window.onscroll = function () {
+        window.onscroll = function() {
             var odiv = document.getElementById("div1");
             var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             // odiv.style.top = document.documentElement.clientHeight - odiv.offsetHeight + scrollTop + "px";
-            startMove(parseInt((document.documentElement.clientHeight - odiv.offsetHeight) / 2 + scrollTop));//取整数不然除二会抖
+            startMove(parseInt((document.documentElement.clientHeight - odiv.offsetHeight) / 2 + scrollTop)); //取整数不然除二会抖
         };
 
         var timer = null;
+
         function startMove(iTarget) {
             var odiv = document.getElementById("div1");
             clearInterval(timer);
-            timer = setInterval(function () {
+            timer = setInterval(function() {
                 var speed = (iTarget - odiv.offsetTop) / 2;
                 speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 

@@ -17,12 +17,13 @@
     </style>
     <script>
         var timer = null;
+
         function startMove() {
             var speed = 7;
             var odiv = document.getElementById("div1");
 
-            clearInterval(timer)// 确保每次只有一个定时器在工作不会产生点完加速同时存在多个计时器
-            timer = setInterval(function () {
+            clearInterval(timer) // 确保每次只有一个定时器在工作不会产生点完加速同时存在多个计时器
+            timer = setInterval(function() {
                 if (odiv.offsetLeft >= 300)
                     clearInterval(timer);
                 else
