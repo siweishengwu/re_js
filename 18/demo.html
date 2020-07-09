@@ -49,7 +49,8 @@
             //现在的图片第几张
             var now = 0;
 
-            //左右按钮
+            oUlSmall.style.width = aLiSmall.length
+                //左右按钮
             oBtnPrev.onmouseover = oMarkLeft.onmouseover = function() {
                 startMove(oBtnPrev, "opacity", 100);
             };
@@ -73,7 +74,7 @@
                 aLiBig[now].style.height = 0;
                 startMove(aLiBig[now], 'height', 320);
 
-                startMove()
+                startMove(oUlSmall, -(now - 1))
             };
             //大图切换
             for (var i = 0; i < aLiSmall.length; i++) {
