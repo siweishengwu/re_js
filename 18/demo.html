@@ -34,13 +34,20 @@
             //右转标记
             var oMarkRight = getByClass(oDiv, 'mark_right')[0];
 
+            //获取小图片的div
             var oDivSmall = getByClass(oDiv, "small_pic")[0];
+
+            var oUlSmall = oDivSmall.getElementsByTagName("ul")[0];
+            //获取每个小图片的li
             var aLiSmall = oDivSmall.getElementsByTagName("li");
-
+            //获取大图片的div
             var oUlBig = getByClass(oDiv, "big_pic")[0];
+            //获取每个大图片的li
             var aLiBig = oUlBig.getElementsByTagName("li");
-
+            //图片的z-index值始终大于上一张 nowzindex++
             var nowZIndex = 2;
+            //现在的图片第几张
+            var now = 0;
 
             //左右按钮
             oBtnPrev.onmouseover = oMarkLeft.onmouseover = function() {
@@ -56,12 +63,50 @@
                 startMove(oBtnNext, "opacity", 0);
             };
 
+            function tab() {
+                aLiBig[now].style.zIndex = nowZIndex++;
+
+                for (var i = 0; i < aLiSmall.length; i++) {
+                    startMove(aLiSmall[i], "opacity", 60);
+                }
+                startMove(aLiSmall[now], "opacity", 100);
+                aLiBig[now].style.height = 0;
+                startMove(aLiBig[now], 'height', 320);
+
+                startMove()
+            };
+            //大图切换
             for (var i = 0; i < aLiSmall.length; i++) {
                 aLiSmall[i].index = i;
                 aLiSmall[i].onclick = function() {
-                    aLiBig[this.index].style.zIndex = nowZIndex++;
-                }
-            }
+                    if (this.index == now) return;
+                    now = this.index;
+                    tab();
+                };
+
+                aLiSmall[i].onmouseover = function() {
+                    startMove(this, "opacity", 100);
+                };
+                aLiSmall[i].onmouseout = function() {
+                    if (this.index != now)
+                        startMove(this, "opacity", 60);
+                };
+            };
+
+            oBtnNext.onclick = function() {
+                now--;
+                if (now == -1)
+                    now = aLiSmall.length - 1;
+
+                tab();
+            };
+            oBtnPrev.onclick = function() {
+                now++;
+                if (now == aLiSmall.length)
+                    now = 0;
+
+                tab();
+            };
         };
     </script>
 </head>
@@ -81,6 +126,7 @@
             <div class="bg"></div>
 
             <li style="z-index:1;"><img src="images/1.jpg" /></li>
+            <!-- 设置z-index 可以提高 -->
             <li><img src="images/2.jpg" /></li>
             <li><img src="images/3.jpg" /></li>
             <li><img src="images/4.jpg" /></li>
