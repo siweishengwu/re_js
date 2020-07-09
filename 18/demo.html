@@ -8,31 +8,60 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="move.js"></script>
     <script>
+        //读取位置
         function getByClass(oParent, sClass) {
             var aEle = oParent.getElementsByTagName("*");
+            //增加一个数组
             var aResult = [];
 
             for (var i = 0; i < aEle.length; i++) {
                 if (aEle[i].className == sClass) {
+                    //添加到数组中
                     aResult.push(aEle[i]);
                 }
             }
             return aResult;
         }
         window.onload = function() {
+            //大div
             var oDiv = document.getElementById('playimages');
+            //前进按钮
             var oBtnPrev = getByClass(oDiv, 'prev')[0];
+            //后退按钮
             var oBtnNext = getByClass(oDiv, 'next')[0];
+            //左转标记
             var oMarkLeft = getByClass(oDiv, 'mark_left')[0];
+            //右转标记
             var oMarkRight = getByClass(oDiv, 'mark_right')[0];
+
+            var oDivSmall = getByClass(oDiv, "small_pic")[0];
+            var aLiSmall = oDivSmall.getElementsByTagName("li");
+
+            var oUlBig = getByClass(oDiv, "big_pic")[0];
+            var aLiBig = oUlBig.getElementsByTagName("li");
+
+            var nowZIndex = 2;
 
             //左右按钮
             oBtnPrev.onmouseover = oMarkLeft.onmouseover = function() {
-                startMove(oBtnPrev, 'opacity', 100);
+                startMove(oBtnPrev, "opacity", 100);
             };
             oBtnPrev.onmouseout = oMarkLeft.onmouseout = function() {
-                startMove(oBtnPrev, 'opacity', 0);
+                startMove(oBtnPrev, "opacity", 0);
             };
+            oBtnNext.onmouseover = oMarkRight.onmouseover = function() {
+                startMove(oBtnNext, "opacity", 100);
+            };
+            oBtnNext.onmouseout = oMarkRight.onmouseout = function() {
+                startMove(oBtnNext, "opacity", 0);
+            };
+
+            for (var i = 0; i < aLiSmall.length; i++) {
+                aLiSmall[i].index = i;
+                aLiSmall[i].onclick = function() {
+                    aLiBig[this.index].style.zIndex = nowZIndex++;
+                }
+            }
         };
     </script>
 </head>
