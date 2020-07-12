@@ -49,8 +49,8 @@
             //现在的图片第几张
             var now = 0;
 
-            oUlSmall.style.width = aLiSmall.length
-                //左右按钮
+            oUlSmall.style.width = aLiSmall.length * aLiSmall[0].offsetWidth + "px";
+            //左右按钮
             oBtnPrev.onmouseover = oMarkLeft.onmouseover = function() {
                 startMove(oBtnPrev, "opacity", 100);
             };
@@ -74,7 +74,14 @@
                 aLiBig[now].style.height = 0;
                 startMove(aLiBig[now], 'height', 320);
 
-                startMove(oUlSmall, -(now - 1))
+                if (now == 0)
+                    startMove(oUlSmall, "left", 0)
+                else if (now == aLiSmall.length - 1)
+                    startMove(oUlSmall, "left", -(now - 2) * aLiSmall[0].offsetWidth);
+                else
+                    startMove(oUlSmall, "left", -(now - 1) * aLiSmall[0].offsetWidth);
+
+
             };
             //大图切换
             for (var i = 0; i < aLiSmall.length; i++) {
@@ -94,19 +101,29 @@
                 };
             };
 
-            oBtnNext.onclick = function() {
+            //左右按钮点击
+            oBtnPrev.onclick = function() {
                 now--;
                 if (now == -1)
                     now = aLiSmall.length - 1;
 
                 tab();
             };
-            oBtnPrev.onclick = function() {
+            oBtnNext.onclick = function() {
                 now++;
                 if (now == aLiSmall.length)
                     now = 0;
 
                 tab();
+            };
+
+            //定时播放
+            var timer = setInterval(oBtnNext.onclick, 2000);
+            oDiv.onmousemove = function() {
+                clearInterval(timer);
+            };
+            oDiv.onmouseout = function() {
+                timer = setInterval(oBtnNext.onclick, 2000);
             };
         };
     </script>
