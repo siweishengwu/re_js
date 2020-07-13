@@ -199,22 +199,20 @@
     <script type="text/javascript" src="move.js"></script>
     <script type="text/javascript">
         window.onload = function() {
-            var oBtnShow = document.getElementById('but');
-            var oBtnClose = document.getElementById('btn_close');
-            var oBottom = document.getElementById('move_bottom');
-            var oBox = document.getElementById('move_box');
-
-            oBtnShow.onclick = function() {
-                startMove(oBottom, 'right', 0, function() {
-                    oBox.style.display = 'block';
-                    startMove(oBox, 'bottom', 0);
+            var obtnshow = document.getElementById("but");
+            var obtnclose = document.getElementById("btn_close");
+            var obottom = document.getElementById("move_bottom");
+            var obox = document.getElementById("move_box");
+            obtnshow.onclick = function() {
+                startMove(obottom, 'right', 0, function() {
+                    obox.style.display = "block";
+                    startMove(obox, "bottom", 0)
                 });
             };
-            oBtnClose.onclick = function() {
-                startMove(oBox, 'bottom', -315, function() {
-                    oBox.style.display = 'none';
-
-                    startMove(oBottom, 'right', -165);
+            obtnclose.onclick = function() {
+                startMove(obox, 'bottom', -315, function() {
+                    obox.style.display = "none";
+                    startMove(obottom, "right", -165)
                 });
             };
         };
@@ -241,18 +239,18 @@
                     <a href="###"></a>
                 </li>
             </ul>
-            <h2 class="move">智能课堂 www.zhinengshe.com</h2>
+            <h2 class="move">dongwei777</h2>
         </div>
         <a class="but_show" id="but" href="###"></a>
         <div id="move_box">
             <div class="bg"></div>
             <div class="nav2_bg"></div>
             <ul id="list_nav">
-                <li><a class="show" href="http://www.zhinengshe.com" target="_blank">天气</a></li>
-                <li class="tab2"><a href="http://www.zhinengshe.com" target="_blank">星座</a></li>
-                <li class="tab3"><a href="http://www.zhinengshe.com" target="_blank">排行</a></li>
-                <li class="tab4"><a href="http://www.zhinengshe.com" target="_blank">热点</a></li>
-                <li class="tab5"><a href="http://www.zhinengshe.com" target="_blank">直播</a></li>
+                <li><a class="show" href="###" target="_blank">天气</a></li>
+                <li class="tab2"><a href="###" target="_blank">星座</a></li>
+                <li class="tab3"><a href="###" target="_blank">排行</a></li>
+                <li class="tab4"><a href="###" target="_blank">热点</a></li>
+                <li class="tab5"><a href="###" target="_blank">直播</a></li>
             </ul>
             <a class='clos' id="btn_close"></a>
             <div class="box_right">
