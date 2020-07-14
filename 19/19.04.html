@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script src="move.js"></script>
+    <script>
+        window.onload = function() {
+            var obtn = document.getElementById("btn1");
+            var odiv = document.getElementById("div1");
+
+            obtn.onclick = function() {
+                startMove(odiv, "width", 300);
+                //开了两个定时器所以只会高变长
+                startMove(odiv, "height", 300);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <input id="btn1" type="button" value="运动" />
+    <div id="div1">
+    </div>
+</body>
+
+</html>
