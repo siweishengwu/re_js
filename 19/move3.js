@@ -17,18 +17,15 @@ function getStyle(obj, name) {
 };
 
 
+//startMove(oDiv,{width:400,height:400})
 function startMove(obj, json, fnEnd) {
     clearInterval(obj.timer);
     obj.timer = setInterval(function() {
-        var bStop = true; //假设： 所有的值都已经到了
+        var bStop = true; //假设：所有的值都已经到了
 
         for (var attr in json) {
 
             var cur = 0;
-
-            if (cur != json[attr])
-                bStop = false;
-
             if (attr == "opacity") {
                 cur = Math.round(parseFloat(getStyle(obj, attr)) * 100);
             } else {
@@ -37,18 +34,21 @@ function startMove(obj, json, fnEnd) {
             var speed = (json[attr] - cur) / 6;
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
 
-            //有点小问题
+            if (cur != json[attr])
+                bStop = false;
+
             if (attr == "opacity") {
                 obj.style.opacity = (cur + speed) / 100;
                 // document.getElementById("txt1").value = obj.style.opacity;
             } else {
                 obj.style[attr] = cur + speed + "px";
             }
+
         }
+
         if (bStop) {
             clearInterval(obj.timer);
-            //加一个断点调试
-            // alert("777");
+            // alert("abc");
             if (fnEnd)
                 fnEnd();
         }
