@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="move3.js"></script>
+    <script>
+        window.onclick = function() {
+            var odiv = document.getElementById("play");
+            var abtn = odiv.getElementsByTagName("ol")[0].getElementsByTagName("li");
+            var oul = odiv.getElementsByTagName("ul")[0];
+
+            var now = 0;
+
+            for (var i = 0; i < abtn.length; i++) {
+
+                // oul.style.top = -150 * this.index + "px";
+                abtn[i].index = i
+                abtn[i].onclick = function() {
+                    now = this.index;
+
+                    tab();
+                };
+            };
+
+            function tab() {
+                for (var i = 0; i < abtn.length; i++) {
+                    abtn[i].className = "";
+                }
+                abtn[now].className = "active";
+                startMove(oul, {
+                    top: -150 * now
+                });
+            };
+
+            function next() {
+                now++;
+                if (now == abtn.length) {
+                    now = 0;
+                }
+                tab();
+            };
+
+            var timer = setInterval(next, 2000);
+
+            odiv.onmousemove = function() {
+                clearInterval(timer);
+            }
+            odiv.onmouseout = function() {
+                timer = setInterval(next, 2000);
+            };
+        };
+    </script>
+</head>
+
+<body>
+
+    <div class="play" id="play">
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul>
+            <li>
+                <a href="###"><img src="images/1.jpg" alt="广告一" /></a>
+            </li>
+            <li>
+                <a href="###"><img src="images/2.jpg" alt="广告二" /></a>
+            </li>
+            <li>
+                <a href="###"><img src="images/3.jpg" alt="广告三" /></a>
+            </li>
+            <li>
+                <a href="###"><img src="images/4.jpg" alt="广告四" /></a>
+            </li>
+            <li>
+                <a href="###"><img src="images/5.jpg" alt="广告五" /></a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
