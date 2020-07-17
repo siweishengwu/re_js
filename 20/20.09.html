@@ -22,8 +22,8 @@
             return {
                 x: ev.clientX + scrollLeft,
                 y: ev.clientY + scrollTop
-            }
-        }
+            };
+        };
 
         document.onmousemove = function(ev) {
             var oEvent = ev || event;
@@ -32,7 +32,7 @@
 
             odiv.style.left = pos.x + "px";
             odiv.style.top = pos.y + "px";
-        }
+        };
     </script>
 </head>
 

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         div {
@@ -26,24 +25,19 @@
         };
         document.onmousemove = function(ev) {
             var adiv = document.getElementsByTagName("div");
-            var oevent = ev || event;
-            var pos = getPos(oevent);
+            var oEvent = ev || event;
+            var pos = getPos(oEvent);
             for (var i = adiv.length - 1; i > 0; i--) {
                 adiv[i].style.left = adiv[i - 1].offsetLeft + "px";
-                adiv[i].style.Top = adiv[i - 1].offsetTop + "px";
-            };
+                adiv[i].style.top = adiv[i - 1].offsetTop + "px";
+            }
             adiv[0].style.left = pos.x + "px";
             adiv[0].style.top = pos.y + "px";
         };
     </script>
 </head>
 
-<body style="height: 2000px;">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+<body>
     <div></div>
     <div></div>
     <div></div>
