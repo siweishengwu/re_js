@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            position: absolute;
+        }
+    </style>
+    <script>
+        document.onkeydown = function(ev) {
+            var oEvent = ev || event;
+            var odiv = document.getElementById('div1');
+            // alert(oEvent.keyCode);
+
+            if (oEvent.keyCode == 37) {
+                odiv.style.left = odiv.offsetLeft - 10 + "px";
+            } else if (oEvent.keyCode == 39) {
+                odiv.style.left = odiv.offsetLeft + 10 + "px";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>
