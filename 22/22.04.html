@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myAddEvenet(obj, ev, fn) {
+            if (obj.attachEvent) {
+                obj.attachEvent('on' + ev, fn);
+            } else {
+                obj.addEventListener(ev, fn, false);
+            }
+        };
+
+        window.onload = function() {
+            var obtn = document.getElementById('btn1');
+
+            myAddEvenet(obtn, 'click', function() {
+                alert('a');
+            });
+            myAddEvenet(obtn, 'click', function() {
+                alert('b');
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <input id="btn1" type="button" value="按钮" />
+</body>
+
+</html>

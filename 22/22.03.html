@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var obtn = document.getElementById('btn1');
+
+            //解决兼容性ie和ff chrome
+            if (obtn.attachEvent) {
+                obtn.onclick = function() {
+                    alert('a');
+                };
+                obtn.onclick = function() {
+                    alert('b');
+                };
+            } else {
+                obtn.addEventListener('click', function() {
+                    alert('a');
+                });
+
+                obtn.addEventListener('click', function() {
+                    alert('bbb');
+                });
+            }
+
+            //attachEvent(事件名,函数) 绑定事件 IE
+            // obtn.attachEvent('onclick', function() {
+            //     alert('a');
+            // });
+
+            // obtn.onclick = function() {
+            //     alert('a');
+            // };
+            // obtn.onclick = function() {
+            //     alert('b');
+            // };
+
+            //FF Chrome IE9
+            //ie7 不兼容
+            //addEventListener(事件名,函数,false)
+            // obtn.addEventListener('click', function() {
+            //     alert('a');
+            // });
+
+            // obtn.addEventListener('click', function() {
+            //     alert('bbb');
+            // });
+        };
+    </script>
+</head>
+
+<body>
+    <input id="btn1" type="button" value="按钮" />
+</body>
+
+</html>

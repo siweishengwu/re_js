@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var odiv = document.getElementById('div1');
+
+            var disX = 0;
+            var disY = 0;
+            odiv.onmousedown = function(ev) {
+                var oEvent = ev || event;
+                disX = oEvent.clientX - odiv.offsetLeft;
+                disY = oEvent.clientY - odiv.offsetTop;
+                if (odiv.setCapture) {
+                    odiv.onmousemove = function(ev) {
+                        var oEvent = ev || event;
+                        var l = oEvent.clientX - disX;
+                        var t = oEvent.clientY - disY;
+
+                        odiv.style.left = l + 'px';
+                        odiv.style.top = t + 'px';
+                    };
+                    odiv.onmouseup = function() {
+                        odiv.onmousemove = null;
+                        odiv.onmouseup = null;
+
+                        odiv.releaseCapture();
+                    };
+                } else { //chrome ff
+                    document.onmousemove = function(ev) {
+                        var oEvent = ev || event;
+                        var l = oEvent.clientX - disX;
+                        var t = oEvent.clientY - disY;
+
+                        odiv.style.left = l + 'px';
+                        odiv.style.top = t + 'px';
+                    };
+                    document.onmouseup = function() {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                        document.releaseCapture();
+                    };
+                }
+                return false;
+            };
+        };
+    </script>
+</head>
+<!-- iE7 bug -->
+
+<body>sdas
+    <div id="div1">dasdasdas</div>dasddasd
+</body>
+
+</html>

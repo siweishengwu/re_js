@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            position: absolute;
+        }
+        
+        .box {
+            border: 1px dashed black;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var odiv = document.getElementById('div1');
+
+            var disX = 0;
+            var disY = 0;
+            odiv.onmousedown = function(ev) {
+                var oEvent = ev || event;
+                disX = oEvent.clientX - odiv.offsetLeft;
+                disY = oEvent.clientY - odiv.offsetTop;
+
+                var obox = document.createElement('div');
+
+                obox.className = 'box';
+                obox.style.width = odiv.offsetWidth - 2 + 'px';
+                obox.style.height = odiv.offsetHeight - 2 + 'px';
+
+                obox.style.left = odiv.offsetLeft + 'px';
+                obox.style.top = odiv.offsetTop + 'px';
+
+                document.body.appendChild(obox);
+
+                document.onmousemove = function(ev) {
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+                    var t = oEvent.clientY - disY;
+
+                    obox.style.left = l + 'px';
+                    obox.style.top = t + 'px';
+                };
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+
+                    odiv.style.left = obox.offsetLeft + 'px';
+                    odiv.style.top = obox.offsetTop + 'px';
+
+                    document.body.removeChild(obox);
+                };
+                return false;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>
