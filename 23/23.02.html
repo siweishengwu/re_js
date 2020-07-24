@@ -23,6 +23,41 @@
             top: 0;
         }
     </style>
+    <script>
+        window.onload = function() {
+            var odiv = document.getElementById('div1');
+
+            var disX = 0;
+            // var disY = 0;
+            odiv.onmousedown = function(ev) {
+                var oEvent = ev || event;
+                disX = oEvent.clientX - odiv.offsetLeft;
+                // disY = oEvent.clientY - odiv.offsetTop;
+
+                document.onmousemove = function(ev) {
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+                    // var t = oEvent.clientY - disY;
+
+                    if (l < 0) {
+                        l = 0;
+                    }
+                    if (l > 580) {
+                        l = 580;
+                    }
+
+                    odiv.style.left = l + 'px';
+                    // odiv.style.top = t + 'px';
+                };
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+                return false;
+            };
+        };
+    </script>
 </head>
 
 <body>
