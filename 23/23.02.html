@@ -22,10 +22,18 @@
             left: 0;
             top: 0;
         }
+        
+        #div2 {
+            width: 0px;
+            height: 0px;
+            background: green;
+        }
     </style>
     <script>
         window.onload = function() {
             var odiv = document.getElementById('div1');
+            var odiv2 = document.getElementById('div2');
+            var oParent = document.getElementById('parent');
 
             var disX = 0;
             // var disY = 0;
@@ -41,13 +49,18 @@
 
                     if (l < 0) {
                         l = 0;
-                    }
-                    if (l > 580) {
-                        l = 580;
+                    } else if (l > oParent.offsetWidth - odiv.offsetWidth) {
+                        l = oParent.offsetWidth - odiv.offsetWidth;
                     }
 
                     odiv.style.left = l + 'px';
                     // odiv.style.top = t + 'px';
+
+                    var scale = (l / (oParent.offsetWidth - odiv.offsetWidth));
+                    document.title = scale;
+
+                    odiv2.style.width = 400 * scale + 'px';
+                    odiv2.style.height = 400 * scale + 'px';
                 };
 
                 document.onmouseup = function() {
@@ -64,6 +77,7 @@
     <div id="parent">
         <div id="div1"></div>
     </div>
+    <div id="div2"></div>
 </body>
 
 </html>
