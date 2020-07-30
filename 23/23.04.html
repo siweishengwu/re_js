@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 600px;
+            height: 20px;
+            background: #ccc;
+            position: relative;
+            margin: 10px auto;
+        }
+        
+        #div1 {
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #div2 {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #div3 {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 4px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var odiv = document.getElementById('div1');
+            var odiv2 = document.getElementById('div2');
+            var odiv3 = document.getElementById('div3');
+            var oParent = document.getElementById('parent');
+
+            var disX = 0;
+            // var disY = 0;
+            odiv.onmousedown = function(ev) {
+                var oEvent = ev || event;
+                disX = oEvent.clientX - odiv.offsetLeft;
+                // disY = oEvent.clientY - odiv.offsetTop;
+
+                document.onmousemove = function(ev) {
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+                    // var t = oEvent.clientY - disY;
+
+                    if (l < 0) {
+                        l = 0;
+                    } else if (l > oParent.offsetWidth - odiv.offsetWidth) {
+                        l = oParent.offsetWidth - odiv.offsetWidth;
+                    }
+
+                    odiv.style.left = l + 'px';
+                    // odiv.style.top = t + 'px';
+
+                    var scale = (l / (oParent.offsetWidth - odiv.offsetWidth));
+                    document.title = scale;
+
+
+                    odiv3.style.top = -scale * (odiv3.offsetHeight - odiv2.offsetHeight) + 'px';
+                };
+
+                document.onmouseup = function() {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+                return false;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="div1"></div>
+    </div>
+    <div id="div2">
+        <div id="div3">
+            Firefox 79: The safe return of shared memory, new tooling, and platform updates Firefox 79 offers a new Promise method, more secure target=_blank links, logical assignment operators, tooling improvements for better JavaScript debugging, and many other
+            updates of interest to web developers. In addition, shared memory is back at last, with a safer implementation. The post Firefox 79: The safe return of shared … 由 Florian Scholz 发布于 July 28, 2020 MDN Web Docs: 15 years young MDN Web Docs turns
+            15 years old! This celebratory article highlights fifteen big wins of the last five years. With initiatives like the browser compatibility data project, learning areas and new pathways for beginning devs, interactive examples, as well as the
+            Product Advisory Board, the Web DNA Report, and the … 由 Chris Mills 发布于 July 23, 2020 Safely reviving shared memory At Mozilla, we want the web to be capable of running high-performance applications so that users and content authors can choose
+            the safety, agency, and openness of the web platform. Shared-memory multi-threading is an essential low-level building block for high-performance applications. However, keeping users safe is paramount, which is why … 由 Anne van Kesteren 发布于
+            July 21, 2020 Testing Firefox more efficiently with machine learning A browser is an enormously complex piece of software, and it's always in development. About a year ago, we asked ourselves: how could we do better? Our CI relied heavily
+            Product Advisory Board, the Web DNA Report, and the … 由 Chris Mills 发布于 July 23, 2020 Safely reviving shared memory At Mozilla, we want the web to be capable of running high-performance applications so that users and content authors can choose
+            the safety, agency, and openness of the web platform. Shared-memory multi-threading is an essential low-level building block for high-performance applications. However, keeping users safe is paramount, which is why … 由 Anne van Kesteren 发布于
+            July 21, 2020 Testing Firefox more efficiently with machine learning A browser is an enormously complex piece of software, and it's always in development. About a year ago, we asked ourselves: how could we do better? Our CI relied heavily
+            Product Advisory Board, the Web DNA Report, and the … 由 Chris Mills 发布于 July 23, 2020 Safely reviving shared memory At Mozilla, we want the web to be capable of running high-performance applications so that users and content authors can choose
+            the safety, agency, and openness of the web platform. Shared-memory multi-threading is an essential low-level building block for high-performance applications. However, keeping users safe is paramount, which is why … 由 Anne van Kesteren 发布于
+            July 21, 2020 Testing Firefox more efficiently with machine learning A browser is an enormously complex piece of software, and it's always in development. About a year ago, we asked ourselves: how could we do better? Our CI relied heavily
+
+        </div>
+    </div>
+</body>
+
+</html>
