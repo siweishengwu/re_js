@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="ajax.js"></script>
     <script>
         window.onload = function() {
             var obtn = document.getElementById('btn1');
             obtn.onclick = function() {
-                ajax
-            }
+                ajax('aaa.txt', function(str) {
+                    alert(str);
+                }, function() {
+                    alert('error');
+                });
+            };
         };
     </script>
 </head>
