@@ -1,0 +1,4 @@
+[{user:'dongwei',pass:'dongwei777'},
+{user:'张三',pass:'654321'},
+{user:'李四',pass:'777'},
+{user:'王五',pass:'999'}]

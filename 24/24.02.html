@@ -11,8 +11,10 @@
             var obtn = document.getElementById('btn1');
             obtn.onclick = function() {
                 //?t'+new Date().getTime() 去掉缓存
-                ajax('aaa.txt?t=' + new Date().getTime(), function(str) {
-                    alert(str);
+                ajax('arr.txt?t=' + new Date().getTime(), function(str) {
+                    // alert(eval(str));
+                    var arr = eval(str);
+                    alert(arr[3]);
                 }, function() {
                     alert('error');
                 });

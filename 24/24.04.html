@@ -5,14 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        ul,
+        li {
+            border: 1px solid black;
+        }
+    </style>
     <script src="ajax.js"></script>
     <script>
         window.onload = function() {
             var obtn = document.getElementById('btn1');
+            var oul = document.getElementById('ul1');
             obtn.onclick = function() {
                 //?t'+new Date().getTime() 去掉缓存
-                ajax('aaa.txt?t=' + new Date().getTime(), function(str) {
-                    alert(str);
+                ajax('arr3.txt?t=' + new Date().getTime(), function(str) {
+                    var arr = eval(str);
+
+                    for (var i = 0; i < arr.length; i++) {
+                        var oli = document.createElement('li');
+                        oli.innerHTML = '用户名：<strong>' + arr[i].user + '</strong>密码：<span>' + arr[i].pass + '</span>';
+                        oul.appendChild(oli);
+                    }
                 }, function() {
                     alert('error');
                 });
@@ -23,6 +36,8 @@
 
 <body>
     <input id="btn1" type="button" value="读取" />
+    <ul id="ul1">
+    </ul>
 </body>
 
 </html>
