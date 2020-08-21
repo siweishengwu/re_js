@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 input {
+            background: white;
+        }
+        
+        #div1 input.active {
+            background: yellow;
+        }
+        
+        #div1 div {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var odiv = document.getElementById('div1');
+            var abtn = odiv.getElementsByTagName('input');
+            var adiv = odiv.getElementsByTagName('div');
+
+            for (var i = 0; i < abtn.length; i++) {
+                abtn[i].index = i;
+                abtn[i].onclick = function() {
+                    for (var i = 0; i < abtn.length; i++) {
+                        abtn[i].className = '';
+                        adiv[i].style.display = 'none';
+                    };
+                    this.className = 'active';
+                    // alert(this.index);
+                    adiv[this.index].style.display = 'block';
+                };
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1">
+        <input class="active" type="button" value="aaa">
+        <input type="button" value="bbb">
+        <input type="button" value="ccc">
+        <div style="display:block">aaa</div>
+        <div>dfsadf</div>
+        <div>erwqerwe</div>
+    </div>
+</body>
+
+</html>
