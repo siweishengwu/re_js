@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var json1 = {
+            name: 'dongwei',
+            qq: '6546846',
+            showName: function() {
+                alert('我的名字叫:' + this.name);
+            },
+            showQQ: function() {
+                alert('我的qq是:' + this.qq);
+            }
+        };
+        var json2 = {
+            name: 'dongxiaosa',
+            qq: '777',
+            showName: function() {
+                alert('我的名字叫:' + this.name);
+            },
+            showQQ: function() {
+                alert('我的qq是:' + this.qq);
+            }
+        };
+        json1.showName();
+        json2.showQQ();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
