@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            new Drag('div1');
+        };
+        function Drag(id) {
+            var _this = this;
+            this.disX = 0;
+            this.disY = 0;
+
+            this.odiv = document.getElementById(id);
+            this.odiv.onmousedown = function (ev) {
+                _this.fnDown(ev);
+            };
+        };
+
+        Drag.prototype.fnDown = function (ev) {
+            var _this = this;
+            var oEvent = ev || vent;
+            this.disX = oEvent.clientX - this.odiv.offsetLeft;
+            this.disY = oEvent.clientY - this.odiv.offsetTop;
+
+            document.onmousemove = function (ev) {
+                _this.fnMove(ev);
+            };
+
+            document.onmouseup = function () {
+                _this.fnUp();
+            };
+        };
+
+        Drag.prototype.fnMove = function (ev) {
+            var oEvent = ev || event;
+            this.odiv.style.left = oEvent.clientX - this.disX + 'px';
+            this.odiv.style.top = oEvent.clientY - this.disY + 'px';
+        };
+        Drag.prototype.fnUp = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>
